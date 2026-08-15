@@ -1,0 +1,198 @@
+/* BUTTONS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  padding: 12px 22px;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.12s ease, background 0.15s ease, border-color 0.15s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn--primary { background: var(--color-primary); color: #fff; }
+.btn--primary:hover { background: #264d2f; }
+.btn--outline { background: transparent; border-color: var(--color-ink); color: var(--color-ink); }
+.btn--outline:hover { background: var(--color-ink); color: var(--color-bg); }
+.btn--ghost { background: var(--color-primary-soft); color: var(--color-primary); font-size: 13px; padding: 9px 16px; }
+.btn--ghost:hover { background: var(--color-primary); color: #fff; }
+
+/* PILLS */
+.pills { display: flex; flex-wrap: wrap; gap: 8px; }
+.pill {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  padding: 6px 12px;
+  border-radius: 20px;
+  color: var(--color-ink-soft);
+}
+
+/* HERO STAMP CARD — signature element */
+.stamp-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  border-top-right-radius: 2px;
+  padding: var(--space-4);
+  position: relative;
+  box-shadow: 0 1px 0 var(--color-line);
+}
+.stamp-card::after {
+  content: '';
+  position: absolute;
+  top: 0; right: 0;
+  width: 0; height: 0;
+  border-style: solid;
+  border-width: 0 22px 22px 0;
+  border-color: transparent var(--color-accent-soft) transparent transparent;
+}
+.stamp-card__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-ink-soft);
+  letter-spacing: 0.08em;
+}
+.stamp-card__value {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 22px;
+  color: var(--color-primary);
+  margin: 4px 0 var(--space-3);
+}
+.stamp-card__rule { border-top: 1px dashed var(--color-line); margin-bottom: var(--space-3); }
+.stamp-card__row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-size: 13px;
+  padding: 6px 0;
+  border-bottom: 1px solid var(--color-bg-alt);
+}
+.stamp-card__row span:first-child {
+  font-family: var(--font-mono);
+  color: var(--color-ink-soft);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding-top: 2px;
+}
+.stamp-card__row span:last-child { text-align: right; font-weight: 500; }
+
+/* PROJECT "RECORD" CARDS */
+.record {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  border-top-left-radius: 2px;
+  overflow: hidden;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.record:hover { border-color: var(--color-primary); transform: translateY(-2px); }
+.record__thumb {
+  background: var(--color-bg-alt);
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+.record__thumb img { width: 100%; height: 100%; object-fit: cover; }
+.record__body { padding: var(--space-3) var(--space-3) var(--space-3) 0; display: flex; flex-direction: column; }
+.record__top { display: flex; justify-content: space-between; align-items: flex-start; gap: var(--space-2); margin-bottom: 6px; }
+.record__id { font-family: var(--font-mono); font-size: 12px; color: var(--color-ink-soft); }
+.record__status {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--color-primary);
+  background: var(--color-primary-soft);
+  padding: 3px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+.record__title { font-size: 20px; margin-bottom: 6px; }
+.record__desc { color: var(--color-ink-soft); font-size: 14px; margin-bottom: var(--space-2); flex-grow: 1; }
+.record__tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: var(--space-2); }
+.record__tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--color-accent);
+  background: var(--color-accent-soft);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+.record__links { display: flex; gap: var(--space-2); font-family: var(--font-mono); font-size: 13px; }
+.record__links a { color: var(--color-ink); border-bottom: 1px solid var(--color-line); padding-bottom: 2px; }
+.record__links a:hover { color: var(--color-primary); border-color: var(--color-primary); }
+
+/* CONTACT LINK CARDS — uniform header row (label + icon-button) + value below */
+.contact__link {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.contact__link:hover { border-color: var(--color-primary); transform: translateY(-2px); }
+
+.contact__link-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+}
+.contact__link-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-ink-soft);
+}
+.contact__link-value {
+  font-weight: 500;
+  font-size: 15px;
+  word-break: break-word;
+  line-height: 1.4;
+}
+
+/* Shared icon-button — used for copy (email/phone) and open (linkedin/github) */
+.icon-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  border: 1px solid var(--color-line);
+  border-radius: 6px;
+  background: var(--color-bg);
+  color: var(--color-ink-soft);
+  cursor: pointer;
+  padding: 0;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+.icon-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+}
+.icon-btn__icon {
+  width: 14px;
+  height: 14px;
+}
+.icon-btn__icon--done { display: none; }
+
+.copy-btn.is-copied {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+.copy-btn.is-copied .icon-btn__icon--default { display: none; }
+.copy-btn.is-copied .icon-btn__icon--done { display: inline-flex; }

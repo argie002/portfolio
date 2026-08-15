@@ -1,0 +1,111 @@
+:root {
+  /* Color tokens — "Data Ledger" palette */
+  --color-bg: #F6F3EC;
+  --color-bg-alt: #EFEADD;
+  --color-surface: #FFFFFF;
+  --color-ink: #1C1B18;
+  --color-ink-soft: #55524A;
+  --color-line: #D8D2C4;
+  --color-primary: #2F5D3A;      /* verify green */
+  --color-primary-soft: #E4EBE1;
+  --color-accent: #B45F3F;       /* clay */
+  --color-accent-soft: #F3E4DB;
+
+  /* Type tokens */
+  --font-display: 'IBM Plex Serif', Georgia, serif;
+  --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
+  --font-body: 'Inter', -apple-system, sans-serif;
+
+  /* Layout tokens */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 32px;
+  --space-5: 48px;
+  --space-6: 64px;
+  --space-7: 96px;
+  --radius: 10px;
+  --container-w: 1160px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+ul { list-style: none; }
+
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; }
+
+.container {
+  max-width: var(--container-w);
+  margin: 0 auto;
+  padding: 0 var(--space-3);
+}
+
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--color-ink);
+  color: var(--color-bg);
+  padding: var(--space-2);
+  z-index: 100;
+}
+.skip-link:focus {
+  left: var(--space-2);
+  top: var(--space-2);
+}
+
+/* visible keyboard focus everywhere */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+  margin-bottom: var(--space-2);
+  text-transform: uppercase;
+}
+.eyebrow--small { font-size: 11px; margin-bottom: var(--space-1); }
+
+.section {
+  padding: var(--space-7) 0;
+  border-bottom: 1px solid var(--color-line);
+}
+.section--alt { background: var(--color-bg-alt); }
+
+.section__title {
+  font-size: 34px;
+  font-weight: 600;
+  margin-bottom: var(--space-4);
+}
+.section__intro {
+  color: var(--color-ink-soft);
+  margin-top: calc(var(--space-4) * -1 + var(--space-1));
+  margin-bottom: var(--space-4);
+  max-width: 520px;
+}
