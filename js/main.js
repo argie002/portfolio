@@ -15,6 +15,16 @@ if (navToggle && nav) {
       navToggle.setAttribute("aria-expanded", "false");
     });
   });
+
+  // Close mobile menu when clicking/tapping outside the nav
+  document.addEventListener("click", (e) => {
+    const isOpen = nav.classList.contains("is-open");
+    const clickedInsideNav = nav.contains(e.target);
+    if (isOpen && !clickedInsideNav) {
+      nav.classList.remove("is-open");
+      navToggle.setAttribute("aria-expanded", "false");
+    }
+  });
 }
 
 // Footer year
@@ -56,3 +66,17 @@ document.querySelectorAll(".copy-btn").forEach(btn => {
     }
   });
 });
+
+// Back to top button
+const backToTop = document.getElementById("backToTop");
+if (backToTop) {
+  const toggleVisibility = () => {
+    backToTop.classList.toggle("is-visible", window.scrollY > 480);
+  };
+  toggleVisibility();
+  window.addEventListener("scroll", toggleVisibility, { passive: true });
+
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+}
